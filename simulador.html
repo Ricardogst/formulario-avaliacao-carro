@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Avaliação de Carros</title>
+    <link rel="stylesheet" href="simulador.css"> <!-- Se você tiver um arquivo CSS -->
+</head>
+<body>
+
+<form id="carEvaluationForm">
+  <div id="brandField">
+    <label for="marca">Qual é a marca do seu carro?</label>
+    <select id="marca" name="marca" onchange="loadModels()">
+      <option value="">Selecionar marca</option>
+      <!-- As marcas serão carregadas dinamicamente -->
+    </select>
+  </div>
+
+  <div id="modelField" style="display:none;">
+    <label for="modelo">Qual é o modelo?</label>
+    <select id="modelo" name="modelo" onchange="loadYears()">
+      <option value="">Selecionar modelo</option>
+    </select>
+  </div>
+
+  <div id="yearField" style="display:none;">
+    <label for="year">De que ano é a matrícula?</label>
+    <select id="year" name="year" onchange="loadBodyTypes()">
+      <option value="">Selecionar ano de matrícula</option>
+    </select>
+  </div>
+
+  <div id="bodyTypeField" style="display:none;">
+    <label for="bodyType">Que tipo de carroceria tem?</label>
+    <select id="bodyType" name="bodyType" onchange="loadFuelTypes()">
+      <option value="">Selecionar tipo de carroceria</option>
+    </select>
+  </div>
+
+  <div id="fuelField" style="display:none;">
+    <label for="fuel">Que tipo de combustível?</label>
+    <select id="fuel" name="fuel" onchange="showMileageField()">
+      <option value="">Selecionar tipo de combustível</option>
+    </select>
+  </div>
+
+  <!-- Novo campo: Quilometragem -->
+  <div id="mileageField" style="display:none;">
+    <label for="mileage">Quantos quilómetros tem o seu carro?</label>
+    <input type="number" id="mileage" name="mileage" placeholder="Inserir quilómetros" oninput="showSaleTimeField()" />
+</div>
+
+  <!-- Novo campo: Quando tenciona vender o seu carro -->
+  <div id="saleTimeField" style="display:none;">
+    <label for="saleTime">Quando tenciona vender o seu carro?</label>
+    <select id="saleTime" name="saleTime" onchange="showBuyerField()">
+      <option value="">Selecionar tempo</option>
+      <option value="O quanto antes">O quanto antes</option>
+      <option value="Nas próximas 4 semanas">Nas próximas 4 semanas</option>
+      <option value="Nos próximos três meses">Nos próximos três meses</option>
+    </select>
+  </div>
+
+  <!-- Novo campo: A quem prefere vender? -->
+  <div id="buyerField" style="display:none;">
+    <label for="buyer">A quem prefere vender?</label>
+    <select id="buyer" name="buyer" onchange="showEmailField()">
+      <option value="">Selecionar comprador</option>
+      <option value="Particular">Particular</option>
+      <option value="Concessionário">Concessionário</option>
+    </select>
+  </div>
+
+  <!-- Novo campo: Email -->
+  <div id="emailField" style="display:none;">
+    <label for="email">Para onde podemos enviar o seu preço?</label>
+    <input type="email" id="email" name="email" placeholder="Insira o seu email" required />
+</div>
+
+  <button type="button" onclick="submitForm()">Ver Avaliação</button>
+</form>
+
+<script src="simulador.min.js"></script>
+</body>
+</html>
